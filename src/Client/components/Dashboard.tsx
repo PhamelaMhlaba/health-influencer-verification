@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import InfluencerSearch from "./InfluencerSearch"
 import InfluencerList from "./InfluencerList"
