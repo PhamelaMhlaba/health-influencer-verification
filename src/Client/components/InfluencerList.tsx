@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import type { InfluencerData, PaginatedResponse } from ""
-import { useToast } from ""
+import type { InfluencerData, PaginatedResponse } from "@/types"
+import { useToast } from "@/hooks?useToast";
 
 export default function InfluencerList() {
   const [influencers, setInfluencers] = useState<InfluencerData[]>([])
