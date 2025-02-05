@@ -10,6 +10,7 @@ interface Toast {
   message: string;
   type: ToastType;
   position?: string;
+  timeoutId?: NodeJS.Timeout;
 }
 
 export function useToast() {
@@ -27,7 +28,7 @@ export function useToast() {
   const showToast = useCallback(
     (message: string, type: ToastType, duration: number = 3000, position: string = "top-right") => {
       const id = new Date().toISOString(); // Unique ID to track each toast
-      const newToast: Toast = { id, message, type, position };
+      const newToast: Toast = { id, message, type, position, timeoutId };
 
       // Update the state using a map to avoid unnecessary re-renders
       setToasts((prevToasts) => new Map(prevToasts.set(id, newToast)));
@@ -51,10 +52,14 @@ export function useToast() {
    * Function to manually dismiss a specific toast.
    * @param id - The ID of the toast to be removed.
    */
-  const dismissToast = useCallback((id: string) => {
+ const dismissToast = useCallback((id: string) => {
     setToasts((prevToasts) => {
       const newToasts = new Map(prevToasts);
-      newToasts.delete(id); // Remove the toast from the map
+      const toast = newToasts.get(id);
+
+      if (toast?.timeoutId) clearTimeout(toast.timeoutId); 
+
+      newToasts.delete(id);
       return newToasts;
     });
   }, []);
