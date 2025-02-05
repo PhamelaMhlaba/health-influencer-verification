@@ -26,27 +26,28 @@ export function useToast() {
    * @param position - The position on the screen where the toast will appear (default is "top-right").
    */
   const showToast = useCallback(
-    (message: string, type: ToastType, duration: number = 3000, position: string = "top-right") => {
-      const id = new Date().toISOString(); // Unique ID to track each toast
-      const newToast: Toast = { id, message, type, position, timeoutId };
+  (message: string, type: ToastType, duration: number = 3000, position: string = "top-right") => {
+    const id = new Date().toISOString(); 
 
-      // Update the state using a map to avoid unnecessary re-renders
-      setToasts((prevToasts) => new Map(prevToasts.set(id, newToast)));
+    // Define timeoutId here first
+    const timeoutId = setTimeout(() => {
+      setToasts((prevToasts) => {
+        const newToasts = new Map(prevToasts);
+        newToasts.delete(id); // Remove the toast from the map after the timeout
+        return newToasts;
+      });
+    }, duration);
 
-      // Automatically remove the toast after the specified duration
-      const timeoutId = setTimeout(() => {
-        setToasts((prevToasts) => {
-          const newToasts = new Map(prevToasts);
-          newToasts.delete(id); // Remove the toast from the map
-          return newToasts;
-        });
-      }, duration);
+    // Now create the newToast object after timeoutId is defined
+    const newToast: Toast = { id, message, type, position, timeoutId };
 
-      // Cleanup the timeout when the component unmounts
-      return timeoutId;
-    },
-    []
-  );
+    // Update the state
+    setToasts((prevToasts) => new Map(prevToasts.set(id, newToast)));
+    
+    return timeoutId;
+  },
+  []
+);
 
   /**
    * Function to manually dismiss a specific toast.
