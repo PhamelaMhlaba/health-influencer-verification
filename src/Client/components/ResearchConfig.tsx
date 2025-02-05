@@ -1,4 +1,4 @@
-import type { ResearchConfigType } from "@/types"
+import type { ResearchConfigType } from "@/Client/types"
 
 type Props = {
   config: ResearchConfigType

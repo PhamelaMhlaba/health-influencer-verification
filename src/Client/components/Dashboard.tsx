@@ -2,7 +2,7 @@ import { useState } from "react"
 import InfluencerSearch from "./InfluencerSearch"
 import InfluencerList from "./InfluencerList"
 import ResearchConfig from "./ResearchConfig"
-import type { ResearchConfigType, InfluencerData } from "@/types"
+import type { ResearchConfigType, InfluencerData } from "@/Client/types"
 import { useToast } from "@/hooks/useToast"
 
 export default function Dashboard() {

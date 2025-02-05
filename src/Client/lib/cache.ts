@@ -1,5 +1,5 @@
 import { createClient, type RedisClientType } from "redis"
-import type { InfluencerData, PaginatedResponse } from "@/types"
+import type { InfluencerData, PaginatedResponse } from "@/Client/types"
 
 class RedisCache {
   private client: RedisClientType
