@@ -1,6 +1,6 @@
 import { useState } from "react"
-import type { ResearchConfigType, InfluencerData } from "/"
-import { useToast } from ""
+import type { ResearchConfigType, InfluencerData } from "@/types"
+import { useToast } from "@/hooks/useToast"
 
 type Props = {
   config: ResearchConfigType
