@@ -1,36 +1,40 @@
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import type { InfluencerData, PaginatedResponse } from "@/Client/types"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import type { InfluencerData, PaginatedResponse } from "@/Client/types";
 import { useToast } from "@/Client/hooks/useToast";
 
-export default function InfluencerList() {
-  const [influencers, setInfluencers] = useState<InfluencerData[]>([])
-  const [currentPage, setCurrentPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(1)
-  const [isLoading, setIsLoading] = useState(false)
-  const { showToast } = useToast()
+// Add 'influencers' prop to the component
+type InfluencerListProps = {
+  influencers: InfluencerData[]; // Define influencers as a prop
+};
+
+export default function InfluencerList({ influencers }: InfluencerListProps) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
-    fetchInfluencers(currentPage)
-  }, [currentPage])
+    fetchInfluencers(currentPage);
+  }, [currentPage]);
 
   const fetchInfluencers = async (page: number) => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
-      const response = await fetch(`/api/influencers?page=${page}&pageSize=10`)
+      const response = await fetch(`/api/influencers?page=${page}&pageSize=10`);
       if (!response.ok) {
-        throw new Error("Failed to fetch influencers")
+        throw new Error("Failed to fetch influencers");
       }
-      const data: PaginatedResponse<InfluencerData> = await response.json()
-      setInfluencers(data.data)
-      setTotalPages(data.totalPages)
+      const data: PaginatedResponse<InfluencerData> = await response.json();
+      // Since influencers are passed as a prop, no need to set them here.
+      setTotalPages(data.totalPages);
     } catch (error) {
-      console.error("Error fetching influencers:", error)
-      showToast("Failed to fetch influencers", "error")
+      console.error("Error fetching influencers:", error);
+      showToast("Failed to fetch influencers", "error");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
@@ -93,6 +97,5 @@ export default function InfluencerList() {
         </button>
       </div>
     </div>
-  )
+  );
 }
-
