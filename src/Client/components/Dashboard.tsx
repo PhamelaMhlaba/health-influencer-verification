@@ -3,7 +3,7 @@ import InfluencerSearch from "./InfluencerSearch"
 import InfluencerList from "./InfluencerList"
 import ResearchConfig from "./ResearchConfig"
 import type { ResearchConfigType, InfluencerData } from "@/Client/types"
-import { useToast } from "@/hooks/useToast"
+import { useToast } from "@/Client/hooks/useToast"
 
 export default function Dashboard() {
   const [influencers, setInfluencers] = useState<InfluencerData[]>([])

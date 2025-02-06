@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react"
-import { useToast } from "@/hooks/useToast"
+import { useToast } from "@/Client/hooks/useToast"
 
 type AnalyticsData = {
   totalInfluencers: number
