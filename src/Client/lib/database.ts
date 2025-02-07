@@ -2,15 +2,15 @@ import { MongoClient } from "mongodb"
 import type { InfluencerData, PaginatedResponse } from "@/Client/types"
 
 // MongoDB URI and client setup
-
-
-// Cached database connection to avoid reconnecting on each request
-let cachedDb: any = null
 const uri = process.env.MONGODB_URI
 if (!uri) {
   throw new Error("MONGODB_URI environment variable is not defined")
 }
 const client = new MongoClient(uri)
+
+// Cached database connection to avoid reconnecting on each request
+let cachedDb: any = null
+
 /**
  * Connects to the MongoDB database. Uses cached connection if available.
  * @returns {Promise<any>} The connected database instance.
@@ -129,7 +129,7 @@ export async function getInfluencerAnalytics(): Promise<{ totalInfluencers: numb
 
     // Aggregate total influencers and average trust score
     const result = await collection
-      .aggregate([
+      .aggregate([ 
         {
           $group: {
             _id: null,
