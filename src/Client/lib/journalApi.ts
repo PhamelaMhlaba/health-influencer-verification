@@ -1,4 +1,4 @@
-import type { Claim } from "@/types";
+import type { Claim } from "@/Client/types";
 
 /**
  * Verifies multiple claims against multiple journals asynchronously.
