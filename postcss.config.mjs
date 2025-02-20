@@ -1,13 +1,10 @@
-import autoprefixer from 'autoprefixer';
-import tailwindcss from 'tailwindcss';
-
 /** @type {import('postcss-load-config').Config} */
 const config = {
-  plugins: [
-    tailwindcss(),
-    autoprefixer(),
-  ],
+  plugins: {
+    "postcss-nesting": {}, // Enables nesting in CSS, useful for maintainable styles
+    "@tailwindcss/postcss": {}, // TailwindCSS for utility-first styling
+    autoprefixer: {}, // Ensures cross-browser compatibility by adding vendor prefixes
+  },
 };
 
 export default config;
-
