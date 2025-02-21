@@ -2,41 +2,57 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <h1 className="text-4xl font-bold mb-8">Health Influencer Verification Admin Panel</h1>
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
-        <Link
-          href="/influencers"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Influencers{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>View and manage health influencers.</p>
-        </Link>
-
-        <Link
-          href="/analytics"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Analytics{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            View overall system analytics and performance metrics.
+    <main className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/20 p-8">
+      <div className="max-w-7xl mx-auto space-y-12">
+        {/* Header */}
+        <div className="text-center space-y-4 py-12">
+          <h1 className="magical-text text-5xl font-bold floating">
+            Health Influencer Verification
+          </h1>
+          <p className="text-xl text-muted-foreground">
+            Admin Panel for Managing Health Influencers
           </p>
-        </Link>
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 gap-8 px-4">
+          {/* Influencers Card */}
+          <Link
+            href="/influencers"
+            className="glass-card group p-8 rounded-2xl transition-all duration-300 hover:scale-105"
+          >
+            <h2 className="text-2xl font-semibold mb-3 magical-text">
+              Influencers
+              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                →
+              </span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              View and manage health influencers.
+            </p>
+          </Link>
+
+          {/* Analytics Card */}
+          <Link
+            href="/analytics"
+            className="glass-card group p-8 rounded-2xl transition-all duration-300 hover:scale-105"
+          >
+            <h2 className="text-2xl font-semibold mb-3 magical-text">
+              Analytics
+              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                →
+              </span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              View overall system analytics and performance metrics.
+            </p>
+          </Link>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-20 w-32 h-32 magical-gradient rounded-full opacity-20 blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-32 h-32 magical-gradient rounded-full opacity-20 blur-3xl" />
       </div>
     </main>
   )
 }
-
