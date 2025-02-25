@@ -1,6 +1,6 @@
 import type React from "react"
 import { ThemeProvider } from "next-themes"
-import { NavBar } from "@/client/components/NavBar"
+import { NavBar } from "@/Client/components/NavBar"
 import "./styles/global.css"
 
 export const metadata = {
