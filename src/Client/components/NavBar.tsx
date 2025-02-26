@@ -27,13 +27,13 @@ export function NavBar() {
               Analytics
             </Link>
             <Link href="/research-config" className={isActive("/research-config")}>
-              Research Config
+              Influencers
             </Link>
             <Link href="/influencer-search" className={isActive("/influencer-search")}>
-              Search
+              Add Influencer
             </Link>
             <Link href="/influencer-list" className={isActive("/influencer-list")}>
-              Influencers
+              Research Settings
             </Link>
           </nav>
 
