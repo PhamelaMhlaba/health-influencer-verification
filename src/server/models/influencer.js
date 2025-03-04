@@ -28,10 +28,7 @@ const InfluencerSchema = new mongoose.Schema({
     ref: 'Claim'
   }]
 }, {
-<<<<<<< HEAD
-    
-=======
->>>>>>> 6221ac77c0329122af939f24353ae1ca28c4c54a
+
   // Add timestamps for createdAt & updatedAt
   timestamps: true
 });
