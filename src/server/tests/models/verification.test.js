@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Verification from '../../models/Verification';
+import Verification from '../../models/Verification.js';
 
 // Disconnect from the database after all tests
 afterAll(async () => {

@@ -1,7 +1,5 @@
-// src/server/tests/models/influencer.test.js
 import mongoose from 'mongoose';
-import Influencer from '../../models/Influencer,js';
-
+import Influencer from '../../models/Influencer'; 
 // Disconnect from the database after all tests
 afterAll(async () => {
   await mongoose.connection.close();
