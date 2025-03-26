@@ -1,6 +1,9 @@
 export default {
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    "^.+\\.(js|jsx|ts|tsx)$": "@swc/jest",
   },
-  extensionsToTreatAsEsm: ['.js'],
+  extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"],
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1",
+  },
 };
