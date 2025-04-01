@@ -1,13 +1,13 @@
-import type { Config } from 'tailwindcss'; // Import the Config type from Tailwind CSS
-
+import type { Config } from 'tailwindcss'; 
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: 'class',
   content: [
-    './pages/**/*.{ts,tsx}',
-  './components/**/*.{ts,tsx}',
+  './pages/**/*.{ts,tsx,js, jsx}',
+  './components/**/*.{ts,tsx, js,jsx}',
   './app/**/*.{ts,tsx}',
-  './src/**/*.{ts,tsx}', // Include all .ts and .tsx files in src
+  './src/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
@@ -54,7 +54,7 @@ const config: Config = {
     },
   },
   plugins: [
-    require('tailwindcss-animate')
+    tailwindcssAnimate, 
   ],
 }
 
