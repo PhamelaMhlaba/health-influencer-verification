@@ -34,8 +34,8 @@
     "postcss": "^8.5.3",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-nesting": "^13.0.1",
-    "postcss-preset-env": "^10.1.4",
-    "tailwindcss": "^4.0.17",
+    "postcss-preset-env": "^10.1.6",
+    "tailwindcss": "^4.1.4",
     "typescript": "^5"
   }
 }
