@@ -1,7 +1,8 @@
-
+/* stylelint-disable */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* rest of your CSS */
 
 @layer base {
     :root {
