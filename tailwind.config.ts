@@ -4,10 +4,14 @@ import tailwindcssAnimate from "tailwindcss-animate";
 const config: Config = {
   darkMode: 'class',
   content: [
-  './pages/**/*.{ts,tsx,js,jsx}',
-  './components/**/*.{ts,tsx,js,jsx}',
-  './app/**/*.{ts,tsx}',
-  './src/**/*.{html,js,jsx,ts,tsx}',
+    './src/app/**/*.{ts,tsx}',              
+    './src/client/components/**/*.{ts,tsx}', 
+    './src/app/styles/**/*.css',       
+    
+    //'./pages/**/*.{ts,tsx,js,jsx}',
+    //'./components/**/*.{ts,tsx,js,jsx}',
+    //'./app/**/*.{ts,tsx}',
+    //'./src/**/*.{html,js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {

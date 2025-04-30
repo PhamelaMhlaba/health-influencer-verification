@@ -31,11 +31,12 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "14.1.0",
     "jest": "^29.7.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.4.31",
+
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-nesting": "^13.0.1",
     "postcss-preset-env": "^10.1.6",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^3.3.5",
     "typescript": "^5"
   }
 }
